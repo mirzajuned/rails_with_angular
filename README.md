@@ -190,8 +190,8 @@ myApp.controller("ProductAddCtr", ['$scope', '$resource', 'Products', '$location
 
 }]);
 
-```
 
+```
 Add an Angular route
 ----------------------------
 Now we'll add a routing directive in order to make our products#index be our "default page." Here I'm defining my routing in app/assets/javascripts/angular/app.js., but again I don't think the filename matters.
