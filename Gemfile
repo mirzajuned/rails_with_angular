@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use Angular as the JavaScript library
-
 gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails'
 
@@ -44,3 +43,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails_12factor', group: :production
