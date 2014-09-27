@@ -139,10 +139,10 @@ Let's create a directory for our controllers. You can name it whatever you want.
 ```sh
 $ mkdir -p app/assets/javascripts/angular/controllers
 ```
-Now let's create the controller file itself. I'm calling this controller the "products controller," and the convention in Angular is to append your controller filenames with Ctrl. Thus our filename will be app/assets/javascripts/angular/controllers/productsCtrl.js.coffee:
+Now let's create the controller file itself. I'm calling this controller the "products controller," and the convention in Angular is to append your controller filenames with Ctrl. Thus our filename will be app/assets/javascripts/angular/controllers/controllers.js.coffee:
 
 ```sh
-# app/assets/javascripts/angular/controllers/productsCtrl.js
+# app/assets/javascripts/angular/controllers/controllers.js
 
 
 //Controllers
@@ -190,8 +190,8 @@ myApp.controller("ProductAddCtr", ['$scope', '$resource', 'Products', '$location
 
 }]);
 
-
 ```
+
 Add an Angular route
 ----------------------------
 Now we'll add a routing directive in order to make our products#index be our "default page." Here I'm defining my routing in app/assets/javascripts/angular/app.js., but again I don't think the filename matters.
@@ -352,7 +352,9 @@ Now, if you go to http://localhost:3000/  and you should see the contents of pro
 
 Don't forget to run your server ```rails s``` .
 
-Nex we will be adding 
+Nex we will be working on authentication...
+
+
 
 License
 ----

@@ -1,5 +1,26 @@
 //Controllers
 
+myApp.controller("SignUpCtr", ['$scope', '$resource', 'Users', '$location', function ($scope, $resource, Users, $location) {
+
+    $scope.user = {email: '', password: '', password_confirmation: ''};
+    $scope.save = function () {
+        if ($scope.userForm.$valid) {
+            Users.create({user: $scope.user}, function () {
+                $location.path('/profile');
+            }, function (error) {
+                console.log(error)
+            });
+        }
+    }
+}]);
+
+myApp.controller("GetUserCtr", ['$scope', '$http', '$resource', 'Details', 'User', '$location', function ($scope, $http, $resource, Details, User, $location) {
+    $scope.details = Details.query();
+
+    alert($scope.details);
+}]);
+
+
 myApp.controller("ProductListCtr", ['$scope', '$http', '$resource', 'Products', 'Product', '$location', function ($scope, $http, $resource, Products, Product, $location) {
 
     $scope.products = Products.query();
@@ -39,6 +60,4 @@ myApp.controller("ProductAddCtr", ['$scope', '$resource', 'Products', '$location
             });
         }
     }
-
-
 }]);

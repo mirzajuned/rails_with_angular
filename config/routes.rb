@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-
+  resources :users
+  resources :user_sessions
   resources :products
+
+  match 'login' => "user_sessions#new",      :as => :login, via: [:get, :post]
+  match 'logout' => "user_sessions#destroy", :as => :logout, via: [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
