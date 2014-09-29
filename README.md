@@ -74,14 +74,18 @@ Note: Angular and Turbolinks can conflict with one another, so you can disable t
 
 ```sh
 <!-- app/assets/javascripts/application.js -->
-//= require turbolinks
-//= require_tree .
 
-// Add the following two lines
+// Add the following these lines
+
 //= require angular
 //= require angular-route
 //= require angular-resource
 //= require angular-ui-bootstrap
+
+// I have removed jquery
+
+//= require turbolinks
+//= require_tree .
 ```
 
 Setting up the layout
@@ -206,15 +210,15 @@ var myApp = angular.module('RailsWithAngular', ['ngRoute', 'ngResource']);
 myApp.config([
     '$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider.when('/products', {
-            templateUrl: '/templates/products/index.html',
+            templateUrl: '/template/products/index.html',
             controller: 'ProductListCtr'
         });
         $routeProvider.when('/products/new', {
-            templateUrl: '/templates/products/new.html',
+            templateUrl: '/template/products/new.html',
             controller: 'ProductAddCtr'
         });
         $routeProvider.when('/products/:id/edit', {
-            templateUrl: '/templates/products/edit.html',
+            templateUrl: '/template/products/edit.html',
             controller: "ProductUpdateCtr"
         });
         $routeProvider.otherwise({
@@ -258,19 +262,19 @@ myApp.factory('Product', ['$resource', function ($resource) {
 
 Add an Angular template folder
 -----------------------
-We'll also want a place to keep our Angular templates. I decided to put mine in public/templates. Again, you can place them wherever you like. 
+We'll also want a place to keep our Angular templates. I decided to put mine in public/template. Again, you can place them wherever you like. 
 
 ```sh
 mkdir public/template
 
 ```
 
-I am going to follow the rails diarectory structure, so i will be creating a separate folder for products public/templates/products
+I am going to follow the rails diarectory structure, so i will be creating a separate folder for products public/template/products
 ```sh
 mkdir public/template/products
-
+```
 <!-- public/template/products/index.html -->
-
+```sh
 <br/>
 <div class="row">
     <div class="col-md-12">
@@ -298,10 +302,13 @@ mkdir public/template/products
         </table>
     </div>
 </div>
+```
+
+
 
 <!-- public/template/products/_form.html -->
 
-
+```sh
 <div class="form-group" ng-class="{'has-error' : submitted && productForm.name.$invalid}">
     <label class="control-label col-md-3">Name <span class="required">* </span> </label>
 
@@ -337,9 +344,11 @@ mkdir public/template/products
         <button type="submit" class="btn btn-primary" ng-click="submitted=true">Submit</button>
     </div>
 </div>
+```
 
 <!-- public/template/products/new.html -->
 
+```sh
 <div class="col-md-10">
     <form class="tab-pane active form-horizontal" id="first" name="productForm" novalidate ng-submit="save()">
         <h3 class="block">Add new product</h3>
@@ -348,6 +357,19 @@ mkdir public/template/products
 </div>
 
 ```
+<!-- public/template/products/edit.html -->
+
+```sh
+<div class="col-md-10">
+    <form class="tab-pane active form-horizontal" id="first" name="productForm" novalidate ng-submit="update()">
+        <h3 class="block">Edit product</h3>
+        <div ng-include src="'/templates/products/_form.html'"></div>
+    </form>
+</div>
+
+
+```
+
 Now, if you go to http://localhost:3000/  and you should see the contents of products#index.html.
 
 Don't forget to run your server ```rails s``` .
