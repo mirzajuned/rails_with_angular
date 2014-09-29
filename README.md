@@ -273,7 +273,7 @@ I am going to follow the rails diarectory structure, so i will be creating a sep
 ```sh
 mkdir public/template/products
 ```
-<!-- public/template/products/index.html -->
+public/template/products/index.html
 ```sh
 <br/>
 <div class="row">
@@ -306,7 +306,7 @@ mkdir public/template/products
 
 
 
-<!-- public/template/products/_form.html -->
+public/template/products/_form.html
 
 ```sh
 <div class="form-group" ng-class="{'has-error' : submitted && productForm.name.$invalid}">
@@ -346,7 +346,7 @@ mkdir public/template/products
 </div>
 ```
 
-<!-- public/template/products/new.html -->
+public/template/products/new.html
 
 ```sh
 <div class="col-md-10">
@@ -357,7 +357,7 @@ mkdir public/template/products
 </div>
 
 ```
-<!-- public/template/products/edit.html -->
+public/template/products/edit.html
 
 ```sh
 <div class="col-md-10">
@@ -381,8 +381,9 @@ Nex we will be working on authentication...
 License
 ----
 
-Pending...
+A H KHAN...
 
+Feel Free To Use
 
 **Free Software, Hell Yeah!**
 
